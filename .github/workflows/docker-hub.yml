@@ -28,4 +28,4 @@ jobs:
           context: ./7.4/
           file: ./7.4/Dockerfile
           push: true
-          tags: php:7.4
+          tags: wpdevenv/php:7.4
