@@ -122,7 +122,14 @@ RUN mkdir /usr/local/composer \
 	&& echo -e "export PATH=\"usr/local/composer/vendor/bin:\${PATH}\"" >> /etc/bash.bashrc \
 	&& echo -e "export COMPOSER_HOME=\"/usr/local/composer\"" >> /etc/bash.bashrc
 
-
+# Install git
+RUN set -eux; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+		git \
+	; \
+	rm -rf /var/lib/apt/lists/*
+ 
 RUN set -eux; \
 	a2enmod rewrite expires; \
 	\
