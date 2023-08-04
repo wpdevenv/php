@@ -24,8 +24,6 @@ RUN set -ex; \
 		libpng-dev \
 		libwebp-dev \
 		libzip-dev \
-		git \
-		git-lfs \
 	; \
 	\
 	docker-php-ext-configure gd \
@@ -122,11 +120,13 @@ RUN mkdir /usr/local/composer \
 	&& echo -e "export PATH=\"usr/local/composer/vendor/bin:\${PATH}\"" >> /etc/bash.bashrc \
 	&& echo -e "export COMPOSER_HOME=\"/usr/local/composer\"" >> /etc/bash.bashrc
 
-# Install git
+# Install git sudo
 RUN set -eux; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 		git \
+		git-lfs \
+  		sudo \
 	; \
 	rm -rf /var/lib/apt/lists/*
  
